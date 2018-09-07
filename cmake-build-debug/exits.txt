@@ -1,0 +1,9 @@
+100 - unknown command. Example ADF instead of ADD.
+101 - unknown symbol. Please use only english letters.
+102 - unknown command instead of [debug]. Please type debug or leave a blank space (don't write anything)/
+103 - command line iss too long. Please use a correct data.
+105 - wrong number of register. Example: reg42 instead of reg4.
+200 - cannot open an input file.
+300 - wrong ammount of arguments. Example: ADDI reg1, reg2, reg3, 42 instead of ADDI reg1, reg2, 42.
+301 - wrong argument. Check it.
+400 - memory out of bounds.

@@ -1,0 +1,9 @@
+registers: 
+reg[0]: 0
+reg[1]: 260
+reg[2]: 310
+reg[3]: 0
+reg[4]: 0
+reg[5]: 0
+reg[6]: 0
+reg[7]: 0

@@ -1,0 +1,7 @@
+C:\labs\c\cmake-build-debug\test1.txt
+C:\labs\c\cmake-build-debug\test2.txt
+C:\labs\c\cmake-build-debug\test3.txt
+C:\labs\c\cmake-build-debug\test4.txt
+C:\labs\c\cmake-build-debug\test5.txt
+C:\labs\c\cmake-build-debug\test6.txt
+C:\labs\c\cmake-build-debug\test7.txt

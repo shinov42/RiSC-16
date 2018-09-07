@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="c"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/labs/c/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="c">
+				<Option output="C:/labs/c/cmake-build-debug/c.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/labs/c/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 c"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="c/fast">
+				<Option output="C:/labs/c/cmake-build-debug/c.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/labs/c/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 c/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/labs/c/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/labs/c/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~2.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/labs/c/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/labs/c/debug.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/debug.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/main.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/main.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/parser.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/parser.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/print.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/print.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/simulation.c">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/simulation.h">
+			<Option target="c"/>
+		</Unit>
+		<Unit filename="C:/labs/c/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

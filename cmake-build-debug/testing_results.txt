@@ -1,0 +1,7 @@
+C:\labs\c\cmake-build-debug\test1.txt : passed 
+C:\labs\c\cmake-build-debug\test2.txt : passed 
+C:\labs\c\cmake-build-debug\test3.txt : passed 
+C:\labs\c\cmake-build-debug\test4.txt : passed 
+C:\labs\c\cmake-build-debug\test5.txt : passed 
+C:\labs\c\cmake-build-debug\test6.txt : passed 
+C:\labs\c\cmake-build-debug\test7.txt : passed 

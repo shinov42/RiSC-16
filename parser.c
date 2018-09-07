@@ -84,12 +84,9 @@ void get_argc(char **argv, int argc) {
         parse_file(in, mem, reg, argv[1]);
     } else
         //if there is a debug keyword
-    if (argv[3] != NULL) {
-
-        if (strcmp(argv[3], "debug") == 0) {
+    if (argv[3] != NULL && strcmp(argv[3], "debug") == 0) {
             printf("starting debug mode\n");
             debug_file(in, mem, reg, argv[1]);
-        }
     } else {
         //if not debug
         printf("unknown command. \nPlease use [debug] for debugging or leave a blank space \n");

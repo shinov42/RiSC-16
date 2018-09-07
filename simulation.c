@@ -4,21 +4,23 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
     int ra = 0, rb = 0, rc = 0;
     int null_comp = 10;
     int arg_one = 0, arg_two = 0, arg_three = 0;
-    char* numbers = {"01234567"};
+    char *numbers = {"01234567"};
+    char *letterssymb = {"rR-"};
     char comm[5] = {'\0'};
     char *operands;
     //get command from string
-    char* temp1 = strchr(string, ' ');
-    char* commafind = strchr(string, ',');
+    char *temp1 = strchr(string, ' ');
+    char *commafind = strchr(string, ',');
     size_t count = strchr(string, ' ') - string;
     if (count > sizeof(string))
         count = strchr(string, '\n') - string;
     //if command is too long - exit with code 100 - unknown command
-    if (count > 5 && temp1 != NULL){
+    if (count > 5 /*&& temp1 != NULL*/) {
         printf("Error 100: unknown command at line %d\n", number);
         exit(100);
     }
 
+    //если есть аргументы вообще
     if (temp1 != NULL) {
         //put a command into 'comm'
         strncpy(comm, string, count);
@@ -26,22 +28,33 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
         //put operands into 'operands'
         operands = string + count + 1;
 
-        if (operands != NULL && commafind == NULL)
-        {
+        if (operands != NULL && commafind == NULL) {
             printf("Error 300: wrong argument at line %d", number);
             exit(300);
         }
 
         //operands: r1,r2,imm or r1,r2,r2 or r1,r2 or none
+        //находим где запятая (по идее после первого аргумента)
         size_t comma = strchr(operands, ',') - operands;
+        //массивы для операндов
         char string_operand_one[16] = {'\0'};
         char string_operand_two[16] = {'\0'};
         char string_operand_three[16] = {'\0'};
         //get first string of argument
         strncpy(string_operand_one, operands, comma);
-        char* check_number = strchr(numbers, string_operand_one[1]);
-        char* find_comma = strchr(string_operand_one, ',');
-        if (find_comma != NULL){
+        unsigned int k = 0;
+        for (k = 0; k < sizeof(string_operand_one); k++) {
+            char *checksymbols = strchr(letterssymb, string_operand_one[k]);
+            char *checknumbers = strchr(numbers, string_operand_one[k]);
+            if (checksymbols == NULL && checknumbers == NULL) {
+                printf("Error 300: wrong argument at line %d", number);
+                exit(300);
+            }
+        }
+
+        char *check_number = strchr(numbers, string_operand_one[1]);
+        char *find_comma = strchr(string_operand_one, ',');
+        if (find_comma != NULL) {
             printf("Error 300: wrong argument at line %d", number);
             exit(300);
         }
@@ -56,46 +69,62 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
             operands = operands + comma + sizeof(char);
             char *temp = strchr(operands, ',');
             int check_comma = strcmp(operands, ",");
-            if (check_comma == 0){
+            if (check_comma == 0) {
                 printf("Error 300: wrong ammount of arguments at line %d", number);
                 exit(300);
             }
             if (temp != NULL && operands != NULL) {
                 comma = strchr(operands, ',') - operands;
                 strncpy(string_operand_two, operands, comma);
+                for (k = 0; k < sizeof(string_operand_two); k++) {
+                    char *checksymbols = strchr(letterssymb, string_operand_two[k]);
+                    char *checknumbers = strchr(numbers, string_operand_two[k]);
+                    if (checksymbols == NULL && checknumbers == NULL) {
+                        printf("Error 300: wrong argument at line %d", number);
+                        exit(300);
+                    }
+                }
+
                 null_comp = strcmp(string_operand_two, "\0");
                 if (null_comp == 0) {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
                 find_comma = strchr(string_operand_two, ',');
-                if (find_comma != NULL){
+                if (find_comma != NULL) {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
                 //if there is none - error. It can be none, two or three
 
-                char* temp_operands = operands+comma;
+                char *temp_operands = operands + comma;
                 check_comma = strcmp(temp_operands, ",");
-                if (check_comma == 0){
+                if (check_comma == 0) {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
                 operands = operands + comma + sizeof(char);
                 check_comma = strcmp(operands, ",");
-                if (check_comma == 0){
+                if (check_comma == 0) {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
                 strncpy(string_operand_three, operands, comma + 1);
+                for (k = 0; k < sizeof(string_operand_three); k++) {
+                    char *checksymbols = strchr(letterssymb, string_operand_three[k]);
+                    char *checknumbers = strchr(numbers, string_operand_three[k]);
+                    if (checksymbols == NULL && checknumbers == NULL) {
+                        printf("Error 300: wrong argument at line %d", number);
+                        exit(300);
+                    }
+                }
                 find_comma = strchr(string_operand_three, ',');
-                if (find_comma != NULL){
+                if (find_comma != NULL) {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
                 operands = operands + sizeof(string_operand_three);
-                if (operands[0] != '\0')
-                {
+                if (operands[0] != '\0') {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
@@ -138,8 +167,7 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
             }
         } else
             arg_three = atoi(string_operand_three);
-    }
-    else strcpy(comm, string);
+    } else strcpy(comm, string);
 
     //basic commands
 
@@ -281,8 +309,8 @@ void skip_strings(int n, FILE *in) {
 
     //while file's not over
     while (!feof(in) && count != 0) {
-        int buf =1;
-        while(buf != '\n')
+        int buf = 1;
+        while (buf != '\n')
             buf = fgetc(in);
         //counter minus one
         count--;
@@ -295,7 +323,7 @@ void back_jump(int count, FILE *in, char *filename) {
 
     //while file's not over
     while (!feof(in) && count != 0) {
-        while(buf != '\n')
+        while (buf != '\n')
             buf = fgetc(in);
         //counter minus one
         count--;

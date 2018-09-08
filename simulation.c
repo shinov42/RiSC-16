@@ -8,7 +8,7 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
     //переменные для хранения чисел их аргументов
     int arg_one = 0, arg_two = 0, arg_three = 0;
     //массивы для проверки допустимых знаков
-    char *numbers = {"01234567"};
+    char *numbers = {"0123456789"};
     char *letterssymb = {"rR-"};
     //массив для хранения команды
     char comm[5] = {'\0'};
@@ -29,7 +29,7 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
         goto procession;
     }
     else
-        //если не можем найти запятую
+        //если не смогли найти запятую
     if (count > sizeof(string))
         count = strchr(string, '\n') - string;
     //if command is too long - exit with code 100 - unknown command
@@ -46,11 +46,6 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
         //put operands into 'operands'
         operands = string + count + 1;
 
-        //нет ни одного операнда + нет запятой
-//        if (operands != NULL && commafind == NULL) {
-//            printf("Error 300: wrong argument at line %d", number);
-//            exit(300);
-//        }
 
         //operands: r1,r2,imm or r1,r2,r2 or r1,r2 or none
         //находим где запятая (по идее после первого аргумента)
@@ -119,11 +114,6 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
                     exit(300);
                 }
 
-//                find_comma = strchr(string_operand_two, ',');
-//                if (find_comma != NULL) {
-//                    printf("Error 300: wrong ammount of arguments at line %d", number);
-//                    exit(300);
-//                }
                 //проверка на то что после второго операнда лишь запятая
                 char *temp_operands = operands + comma;
                 check_comma = strcmp(temp_operands, ",");
@@ -149,11 +139,6 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
                     }
                 }
 
-//                find_comma = strchr(string_operand_three, ',');
-//                if (find_comma != NULL) {
-//                    printf("Error 300: wrong ammount of arguments at line %d", number);
-//                    exit(300);
-//                }
                 //если осталось ещё что-то - ошибка
                 operands = operands + sizeof(string_operand_three);
                 if (operands[0] != '\0') {
@@ -174,16 +159,23 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
                         exit(300);
                     }
                 }
-                null_comp = strcmp(string_operand_two, "\0");
-                if (null_comp == 0) {
+                if (string_operand_two[0] == '\0') {
                     printf("Error 300: wrong ammount of arguments at line %d", number);
                     exit(300);
                 }
             }
         }
 
-        //переводим строки в числа и проверяем на номер если регистр
-        arg_one = atoi(string_operand_one + sizeof(char));
+        int b;
+        int ret = sscanf(string_operand_one + sizeof(char), "%d", &b);
+        if (ret != 1)
+        {
+            printf("Error: wrong argument \n");
+            exit(1);
+        }
+        else
+            arg_one = ret;
+            //переводим строки в числа и проверяем на номер если регистр
         ra = 1;
         if (arg_one > 7 || arg_one < 0) {
             printf("error 105: can't reach specified register\n");
@@ -192,7 +184,14 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
         check_number = strchr(numbers, string_operand_two[1]);
         if ((string_operand_two[0] == 'r' || string_operand_two[0] == 'R') && check_number != NULL) {
             rb = 1;
-            arg_two = atoi(string_operand_two + sizeof(char));
+            ret = sscanf(string_operand_two + sizeof(char), "%d", &b);
+            if (ret != 1)
+            {
+                printf("Error: wrong argument \n");
+                exit(1);
+            }
+            else
+                arg_two = ret;
             if (arg_two > 7 || arg_two < 0) {
                 printf("error 105: can't reach specified register\n");
                 exit(105);
@@ -203,14 +202,30 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
         check_number = strchr(numbers, string_operand_three[1]);
         if ((string_operand_three[0] == 'r' || string_operand_three[0] == 'R') && check_number != NULL) {
             rc = 1;
-            arg_three = atoi(string_operand_three + sizeof(char));
+            ret = sscanf(string_operand_three + sizeof(char), "%d", &b);
+            if (ret != 1)
+            {
+                printf("Error: wrong argument \n");
+                exit(1);
+            }
+            else
+                arg_three = ret;
             if (arg_three > 7 || arg_three < 0) {
                 printf("error 105: can't reach specified register\n");
                 exit(105);
             }
-        } else
+        } else {
+            ret = sscanf(string_operand_three + sizeof(char), "%d", &b);
+            if (ret != 1)
+            {
+                printf("Error: wrong argument \n");
+                exit(1);
+            }
+            else
+                arg_three = ret;
             arg_three = atoi(string_operand_three);
-    } else strcpy(comm, string);
+        }
+        } else strcpy(comm, string);
 
     //basic commands
 
@@ -252,7 +267,7 @@ void string_procession(char *string, FILE *in, int mem[], int reg[], int number,
     else if (strcmp(comm, "LUI") == 0) {
         //operands should contain r1,imm
         if (ra == 1 && rb == 0 && rc == 0)
-            reg[arg_one] = (int) (arg_two & 01111111111000000);
+            reg[arg_one] = (int) (arg_two & 01111111111000000);//первый 0 -двоичное число
         else {
             printf("Error 301: wrong argument(s)\n");
             exit(301);

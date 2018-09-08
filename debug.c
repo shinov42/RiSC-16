@@ -20,10 +20,14 @@ void debug_file(FILE *in, int *mem, int *reg, char *filename) {
 
                 //buf for read symbols
                 char *buf = calloc(32, sizeof(char));
+                if (buf == NULL){
+                    printf("Error: can't get memory\n");
+                    exit(1);
+                }
                 //int to get any symbol from input
                 int read_symb = 0;
 
-//number of symbol we read
+            //number of symbol we read
                 unsigned int counter = 0;
 
                 do {
@@ -42,6 +46,10 @@ void debug_file(FILE *in, int *mem, int *reg, char *filename) {
 
                     if (counter > sizeof(buf)) {
                         buf = (char *) realloc(buf, sizeof(buf) + sizeof(char) * 32);
+                        if (buf == NULL){
+                            printf("Error: can't get memory\n");
+                            exit(1);
+                        }
                     } else if (counter >= 100) {
                         printf("Error 103: command line %d is too long\n", number);
                         exit(103);
@@ -62,12 +70,16 @@ void debug_file(FILE *in, int *mem, int *reg, char *filename) {
 
                 free(buf);
             }
-            print_reg_debug(reg);
+            print_result(stdout, reg);
         } else if (code == 'e') {
             while (!feof(in)) {
 
                 //buf for read symbols
                 char *buf = calloc(32, sizeof(char));
+                if (buf == NULL){
+                    printf("Error: can't get memory\n");
+                    exit(1);
+                }
                 //int to get any symbol from input
                 int read_symb = 0;
                 //number of symbol we read
@@ -89,6 +101,10 @@ void debug_file(FILE *in, int *mem, int *reg, char *filename) {
 
                     if (counter > sizeof(buf)) {
                         buf = (char *) realloc(buf, sizeof(buf) + sizeof(char) * 32);
+                        if (buf == NULL){
+                            printf("Error: can't get memory\n");
+                            exit(1);
+                        }
                     } else if (counter >= 100) {
                         printf("Error 103: command line %d is too long\n", number);
                         exit(103);

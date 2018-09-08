@@ -6,8 +6,6 @@
 #include "simulation.h"
 #include <stdlib.h>
 
-int parse_file(FILE *in, int mem[], int reg[], char *filename);
-
-void get_argc(char** args, int argv);
+void parse_file(FILE *in, int mem[], int reg[], char *filename);
 
 #endif //C_PARSER_H

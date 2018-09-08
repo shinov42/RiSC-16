@@ -4,6 +4,4 @@
 
 void print_result(FILE *out, int *reg);
 
-void print_reg_debug(int *reg);
-
 #endif //C_PRINT_H

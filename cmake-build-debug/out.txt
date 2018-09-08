@@ -1,8 +1,8 @@
 registers: 
 reg[0]: 0
-reg[1]: -50
-reg[2]: 150
-reg[3]: -60
+reg[1]: 310
+reg[2]: 0
+reg[3]: 0
 reg[4]: 0
 reg[5]: 0
 reg[6]: 0
